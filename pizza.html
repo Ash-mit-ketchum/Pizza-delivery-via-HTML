@@ -1,0 +1,167 @@
+<html>
+
+<head> <title>
+
+frontend restaurant project </title> 
+<meta charset="UTF-8">
+	<title>frontend restaurant project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+h1 {
+		font-size: 48px;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 30px;
+	}
+	
+	form {
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 10px;
+		margin: auto;
+		max-width: 600px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	}
+	
+	h3 {
+		font-size: 24px;
+		font-weight: bold;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	
+	input[type=radio], input[type=checkbox] {
+		margin-right: 10px;
+	}
+	
+	input[type=text] {
+		margin-bottom: 10px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		font-size: 16px;
+		width: 100%;
+		box-sizing: border-box;
+		background-color: #f1f1f1;
+		color: #333;
+	}
+	
+	input[type=submit], input[type=reset] {
+		padding: 10px 20px;
+		border-radius: 5px;
+		border: none;
+		background-color: #333;
+		color: #fff;
+		font-size: 16px;
+		cursor: pointer;
+		margin-right: 10px;
+		transition: background-color 0.2s ease-in-out;
+	}
+	
+	input[type=submit]:hover, input[type=reset]:hover {
+		background-color: #555;
+	}
+	
+	hr {
+		border: none;
+		border-top: 1px solid #ccc;
+		margin: 30px 0;
+	}
+</style> 
+
+<script>
+
+function submitform() {
+  // get form data
+  const form = document.getElementById("pizza-form");
+  const baseType = form.querySelector('input[name="base type"]:checked').value;
+  const toppings = Array.from(form.querySelectorAll('input[name="toppings"]:checked')).map(el => el.value);
+  const sides = Array.from(form.querySelectorAll('input[name="sides"]:checked')).map(el => el.value);
+  const drinks = Array.from(form.querySelectorAll('input[name="drink"]:checked')).map(el => el.value);
+  const remarks = form.querySelector('input[name="remarks"]').value;
+  const address = form.querySelector('input[name="address"]').value;
+  const contact = form.querySelector('input[name="contact"]').value;
+
+  // create confirmation message
+  const message = `Thank you for your order!\n\nBase type: ${baseType}\nToppings: ${toppings.join(", ")}\nSides: ${sides.join(", ")}\nDrinks: ${drinks.join(", ")}\nRemarks: ${remarks}\nAddress: ${address}\nContact: ${contact}`;
+
+  // show confirmation popup
+  if (confirm(message)) {
+    // submit form
+    form.submit();
+  }
+}
+
+</script>   
+
+</head>
+
+<body>
+
+<h1 align 'center"> ORDER PIZZA ONLINE!!! </h1>
+
+<form id="pizza-form" onsubmit="submitform()">
+
+<h3> PLEASE SELECT YOUR BASE! </H3>
+
+<input type="radio" name = "base type" id="base-normal" value="normal base"> <label for="base-normal"> normal base <br>
+
+<input type="radio" name = "base type" id="base-cheeseburst" value="cheeseburst"> <label for="base-cheeseburst"> cheeseburst
+
+<h3> PLEASE SELECT YOUR TOPPINGS! </h3>
+
+<INPUT TYPE = "checkbox" name = "toppings" id="toppings-peppers" value="peppers"> <label for="toppings-peppers"> peppers <br>
+
+<input type="checkbox" name="toppings" id="toppings-mushrooms" value="mushrooms"> <label for="toppings-mushrooms"> mushrooms <br> 
+
+<input type="checkbox" name="toppings" id="toppings-paneer" value="paneer"> <label for="toppings-paneer"> paneer <br>
+
+<input type="checkbox" name ="toppings" id="toppings-chicken" value="chicken"> <label for="toppings-chicken"> chicken <br> 
+
+<input type="checkbox" name ="toppings" id="toppings-BabyCorn" value="BabyCorn"> <label for="toppings-BabyCorn"> BabyCorn <br>
+
+<h3> SELECT ADDITIONAL SIDES! </h3>
+
+<input type="checkbox" name = "sides" id="sides-GarlicBread" value="GarlicBread"> <label for="sides-GarlicBread"> GarlicBread <br>
+
+<input type="checkbox" name="sides" id="sides-RedSaucePasta" value="RedSaucePasta"> <label for="sides-RedSaucePasta"> RedSaucePasta <br>
+
+<input type="checkbox" name "sides" id="sides-WhiteSaucePasta" value="WhiteSaucePasta"> <label for="sides-WhiteSaucePasta"> WhiteSaucePasta <br>
+
+<h3> PLEASE SELECT YOUR DRINKS! </h3>
+
+<input type ="checkbox" name= "drink" id="drik-Maaza" value="Maaza"> <label for="drink-Maaza"> Maaza <br>
+
+<input type ="checkbox" name= "drink" id="drink-Sprite" value="Sprite"> <label for="drink-Sprite"> Sprite <br> 
+
+<input type= "checkbox" name ="drink" id="drink-Pepsi" value="Pepsi"> <label for="drink-Pepsi"> Pepsi <br>
+
+<input type= "checkbox" name "drink" id="drink-CocaCola" value="CocaCola"> <label for="drink-CocaCola"> CocaCola <br> <hr>
+ 
+<input type="text" name="remarks" value="additional remarks" size="50"> <br>
+
+<input type="text" name="address" value="address" size="50"> <br>
+
+<input type="text" name="contact" value="contact no." size="50"> <br>
+
+<input type = "submit" value="place order">
+
+<input type= "reset"> <br> <hr>
+
+</form>
+
+<h1 align "center"> THANK YOU FOR SHOPPING WITH US!!! </h1>
+
+</body>
+
+</html>
